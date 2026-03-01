@@ -14,3 +14,14 @@ public class GestionNota {
     public void registrarNota(Nota nota) {
         listaNotas.add(nota);
     }
+     // consultar
+    public Nota consultarNota(String codigoEstudiante, String codigoAsignatura, String periodo) {
+        for (Nota n : listaNotas) {
+            if (n.getEstudiante().getCodigo().equals(codigoEstudiante) &&
+                n.getAsignatura().getCodigo().equals(codigoAsignatura) &&
+                n.getPeriodo().equalsIgnoreCase(periodo)) {
+                return n;
+            }
+        }
+        return null;
+    }
