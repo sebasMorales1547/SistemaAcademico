@@ -9,5 +9,10 @@ package org.example;
  * @author PC
  */
 public class ESTUDIANTE {
+    private String nombre;
+    private float codigo; //Numnero de identificacion.
+    private String Programa;
+    private int semestre;
     
+   
 }
