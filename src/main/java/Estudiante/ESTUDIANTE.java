@@ -10,59 +10,72 @@ package Estudiante;
  */
 public class Estudiante {
     private String nombre;
-    private float codigo; //Numnero de identificacion.
-    private String Programa;
+    private String apellido;
+    private String codigo; 
     private int semestre;
+    private int edad; 
     
     
     
    public Estudiante(){
        
    }
-   
-    public Estudiante(String nombre, float codigo, String Programa, int semestre) {
+
+    public Estudiante(String nombre, String apellido, String codigo, int semestre, int edad) {
         this.nombre = nombre;
+        this.apellido = apellido;
         this.codigo = codigo;
-        this.Programa = Programa;
         this.semestre = semestre;
+        this.edad = edad;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public float getCodigo() {
-        return codigo;
+    public String getApellido() {
+        return apellido;
     }
 
-    public String getPrograma() {
-        return Programa;
+    public String getCodigo() {
+        return codigo;
     }
 
     public int getSemestre() {
         return semestre;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setCodigo(float codigo) {
-        this.codigo = codigo;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public void setPrograma(String Programa) {
-        this.Programa = Programa;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public void setSemestre(int semestre) {
         this.semestre = semestre;
     }
 
-    @Override
-    public String toString() {
-        return "Estudiante{" + "nombre=" + nombre + ", codigo=" + codigo + ", Programa=" + Programa + ", semestre=" + semestre + '}';
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
+    
+    
+   
+    
+
+    
+
+  
     
     
     
