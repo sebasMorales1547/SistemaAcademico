@@ -25,3 +25,12 @@ public class GestionNota {
         }
         return null;
     }
+    // modificar
+    public boolean modificarNota(String codigoEstudiante, String codigoAsignatura, String periodo, double nuevoValor) {
+        Nota nota = consultarNota(codigoEstudiante, codigoAsignatura, periodo);
+        if (nota != null) {
+            nota.setValor(nuevoValor);
+            return true;
+        }
+        return false;
+    }
