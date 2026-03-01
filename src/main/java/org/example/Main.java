@@ -1,10 +1,16 @@
-package org.example;
+package SistemaAcademico;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
+import java.util.ArrayList;
 
-        }
+public class GestionNota {
+
+    private ArrayList<Nota> listaNotas;
+
+    public GestionNota() {
+        listaNotas = new ArrayList<>();
     }
-}
+
+    // registrar
+    public void registrarNota(Nota nota) {
+        listaNotas.add(nota);
+    }
