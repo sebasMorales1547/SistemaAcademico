@@ -130,6 +130,48 @@ public class Main {
 
     }
 
+    public void actualizarEstudiante(){
+
+        System.out.println("Ingrese el codigo del estudiante que desea actualizar:");
+        String codigo = leer.nextLine();
+
+        boolean encontrado = false;
+
+        for (Estudiante e : estudiantes){
+
+            if (codigo.equals(e.getCodigo())){
+
+                System.out.println("Estudiante encontrado:");
+                System.out.println(e);
+
+                System.out.println("Ingrese el nuevo nombre:");
+                String nuevoNombre = leer.nextLine();
+                e.setNombre(nuevoNombre);
+
+                System.out.println("Ingrese el nuevo apellido:");
+                String nuevoApellido = leer.nextLine();
+                e.setApellido(nuevoApellido);
+
+                System.out.println("Ingrese el nuevo semestre:");
+                int nuevoSemestre = leer.nextInt();
+                e.setSemestre(nuevoSemestre);
+
+                System.out.println("Ingrese la nueva edad:");
+                int nuevaEdad = leer.nextInt();
+                e.setEdad(nuevaEdad);
+
+                System.out.println("Estudiante actualizado correctamente");
+
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (encontrado == false){
+            System.err.println("El estudiante no ha sido encontrado");
+        }
+    }
+
 
     }
 
