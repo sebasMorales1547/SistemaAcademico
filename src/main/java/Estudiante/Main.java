@@ -1,38 +1,80 @@
 package Estudiante;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     static Scanner sc = new Scanner(System.in);
 
-    public static void registrarAsignatura() {
+    static ArrayList<String> listaAsignaturas = new ArrayList<>();
 
+    public static void registrarAsignatura() {
         System.out.println("=== Registrar Asignatura ===");
 
-        System.out.print("Ingrese el codigo: ");
+        System.out.print("Codigo: ");
         String codigo = sc.nextLine();
 
-        System.out.print("Ingrese el nombre: ");
+        System.out.print("Nombre: ");
         String nombre = sc.nextLine();
 
-        System.out.print("Ingrese los creditos: ");
+        System.out.print("Creditos: ");
         int creditos = Integer.parseInt(sc.nextLine());
 
-        System.out.print("Ingrese el docente: ");
+        System.out.print("Docente: ");
         String docente = sc.nextLine();
 
-        System.out.println("\nAsignatura registrada correctamente:");
-        System.out.println("Codigo: " + codigo);
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Creditos: " + creditos);
-        System.out.println("Docente: " + docente);
+        String asignatura = "Codigo: " + codigo +
+                " Nombre: " + nombre +
+                " Creditos: " + creditos +
+                " Docente: " + docente;
+
+        listaAsignaturas.add(asignatura);
+
+        System.out.println("Asignatura registrada correctamente.\n");
+    }
+
+    // Listar todas
+    public static void listarAsignaturas() {
+        System.out.println("=== Lista de Asignaturas ===");
+
+        if (listaAsignaturas.isEmpty()) {
+            System.out.println("No hay asignaturas registradas.");
+        } else {
+            for (String a : listaAsignaturas) {
+                System.out.println(a);
+            }
+        }
+        System.out.println();
+    }
+
+    // Buscar asignatura
+    public static void buscarAsignatura() {
+        System.out.println("=== Buscar Asignatura ===");
+        System.out.print("Ingrese el codigo o nombre: ");
+        String busqueda = sc.nextLine();
+
+        boolean encontrada = false;
+
+        for (String a : listaAsignaturas) {
+            if (a.toLowerCase().contains(busqueda.toLowerCase())) {
+                System.out.println("Encontrada: " + a);
+                encontrada = true;
+            }
+        }
+
+        if (!encontrada) {
+            System.out.println("Asignatura no encontrada.");
+        }
+
+        System.out.println();
     }
 
     public static void main(String[] args) {
         registrarAsignatura();
-    }
-    
-    
-}
+        registrarAsignatura();
 
+        listarAsignaturas();
+        buscarAsignatura();
+    }
+}
