@@ -172,6 +172,29 @@ public class Main {
         }
     }
 
+    public void eliminarEstudiante(){
+
+        System.out.println("ingrese el codigo del estudiante que desea eliminar");
+        String codigo=leer.nextLine();
+
+        boolean encontrado = false;
+
+        for (Estudiante e: estudiantes){
+            if (codigo.equals(e.getCodigo())){
+                System.out.println("Estudiante encontrado");
+                estudiantes.remove(e);
+
+                encontrado = true;
+                break;
+            }
+
+        }
+        if (encontrado == false){
+
+            System.err.println("El estudiante no ha sido encontrado");        }
+
+    }
+
 
     }
 
