@@ -95,6 +95,41 @@ public class Main {
         System.out.println("El estudiante ha sido registrado correctamente");
     }
 
+    public void listarEstudiante(){
+
+        if (estudiantes.isEmpty()){
+            System.err.println("No hay estudiantes registrados");
+        }
+        else {
+            for (Estudiante e : estudiantes){
+                System.out.println(e);
+            }
+        }
+
+    }
+
+    public void buscarEstudiante(){
+
+        String codigo;
+        boolean encontrado=false; //para mandar el mensaje de no encontrado
+
+        System.out.println("Ingrese el codigo del estudiante");
+        codigo = leer.nextLine();
+
+        for (Estudiante e : estudiantes){
+            if (codigo.equals(e.getCodigo())){
+                System.out.println("Estudiante encontrado :");
+                System.out.println(e);
+                encontrado = true;
+            }
+        }
+
+        if (encontrado == false){
+            System.out.println("El estudiante no ha sido encontrado");
+        }
+
+    }
+
 
     }
 
