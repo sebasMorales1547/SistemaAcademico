@@ -115,12 +115,42 @@ public static void actualizarAsignatura() {
     }
 }
 
-    public static void main(String[] args) {
-        registrarAsignatura();
-        registrarAsignatura();
+//Eliminar asignatura
+public static void eliminarAsignatura() {
+    System.out.println("=== Eliminar Asignatura ===");
+    System.out.print("Ingrese el codigo de la asignatura a eliminar: ");
+    String busqueda = sc.nextLine();
 
-        listarAsignaturas();
-        buscarAsignatura();
-        actualizarAsignatura();
+    boolean eliminada = false;
+
+    for (int i = 0; i < listaAsignaturas.size(); i++) {
+        String a = listaAsignaturas.get(i);
+
+        if (a.toLowerCase().contains(busqueda.toLowerCase())) {
+
+            System.out.println("Asignatura encontrada: " + a);
+
+            System.out.print("¿Esta seguro de eliminarla? (S/N): ");
+            String opcion = sc.nextLine();
+
+            if (opcion.equalsIgnoreCase("S")) {
+                listaAsignaturas.remove(i);
+                System.out.println("Asignatura eliminada correctamente.\n");
+            } else {
+                System.out.println("Cancelado.\n");
+            }
+
+            eliminada = true;
+            break;
+        }
+    }
+
+    if (!eliminada) {
+        System.out.println("Asignatura no encontrada.\n");
+    }
+}
+
+    public static void main(String[] args) {
+       
     }
 }
