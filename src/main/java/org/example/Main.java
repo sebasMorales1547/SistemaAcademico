@@ -34,3 +34,16 @@ public class GestionNota {
         }
         return false;
     }
+    // eliminar
+    public boolean eliminarNota(String codigoEstudiante, String codigoAsignatura, String periodo) {
+        return listaNotas.removeIf(n ->
+                n.getEstudiante().getCodigo().equals(codigoEstudiante) &&
+                n.getAsignatura().getCodigo().equals(codigoAsignatura) &&
+                n.getPeriodo().equalsIgnoreCase(periodo)
+        );
+    }
+
+    public ArrayList<Nota> getListaNotas() {
+        return listaNotas;
+    }
+}
