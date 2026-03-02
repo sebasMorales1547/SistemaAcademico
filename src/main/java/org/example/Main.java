@@ -1,10 +1,10 @@
-package SistemaAcademico;
+package org.example;
 
 import java.util.ArrayList;
 
 public class main {
 
-    private ArrayList<Nota> listaNotas;
+    private final ArrayList<Nota> listaNotas;
 
     public main() {
         listaNotas = new ArrayList<>();
@@ -17,10 +17,10 @@ public class main {
      // consultar
     public Nota consultarNota(String codigoEstudiante, String codigoAsignatura, String periodo) {
         for (Nota n : listaNotas) {
-            if (n.getEstudiante().getCodigo().equals(codigoEstudiante) &&
-                n.getAsignatura().getCodigo().equals(codigoAsignatura) &&
-                n.getPeriodo().equalsIgnoreCase(periodo)) {
+            if (n.getPeriodo().equalsIgnoreCase(periodo) &&
+                    n.getEstudiante().getCodigo().equals(codigoEstudiante) && n.getAsignatura().getCodigo().equals(codigoAsignatura)) {
                 return n;
+            } else {
             }
         }
         return null;
@@ -37,9 +37,11 @@ public class main {
     // eliminar
     public boolean eliminarNota(String codigoEstudiante, String codigoAsignatura, String periodo) {
         return listaNotas.removeIf(n ->
-                n.getEstudiante().getCodigo().equals(codigoEstudiante) &&
-                n.getAsignatura().getCodigo().equals(codigoAsignatura) &&
-                n.getPeriodo().equalsIgnoreCase(periodo)
+                {
+            return n.getEstudiante().getCodigo().equals(codigoEstudiante) &&
+                    n.getAsignatura().getCodigo().equals(codigoAsignatura) &&
+                    n.getPeriodo().equalsIgnoreCase(periodo);
+        }
         );
     }
 
