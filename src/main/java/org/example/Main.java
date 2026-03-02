@@ -2,11 +2,11 @@ package SistemaAcademico;
 
 import java.util.ArrayList;
 
-public class Main {
+public class main {
 
     private ArrayList<Nota> listaNotas;
 
-    public Main() {
+    public main() {
         listaNotas = new ArrayList<>();
     }
 
