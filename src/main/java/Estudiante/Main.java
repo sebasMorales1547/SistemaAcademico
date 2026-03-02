@@ -69,6 +69,51 @@ public class Main {
 
         System.out.println();
     }
+    
+    //Actualizar asignatura
+public static void actualizarAsignatura() {
+    System.out.println("=== Actualizar Asignatura ===");
+    System.out.print("Ingrese el codigo  de la asignatura a actualizar: ");
+    String busqueda = sc.nextLine();
+
+    boolean encontrada = false;
+
+    for (int i = 0; i < listaAsignaturas.size(); i++) {
+        String a = listaAsignaturas.get(i);
+
+        if (a.toLowerCase().contains(busqueda.toLowerCase())) {
+
+            System.out.println("Asignatura encontrada: " + a);
+
+            System.out.print("Nuevo codigo: ");
+            String codigo = sc.nextLine();
+
+            System.out.print("Nuevo nombre: ");
+            String nombre = sc.nextLine();
+
+            System.out.print("Nuevos creditos: ");
+            int creditos = Integer.parseInt(sc.nextLine());
+
+            System.out.print("Nuevo docente: ");
+            String docente = sc.nextLine();
+
+            String asignaturaActualizada = "Codigo: " + codigo +
+                    " Nombre: " + nombre +
+                    " Creditos: " + creditos +
+                    " Docente: " + docente;
+
+            listaAsignaturas.set(i, asignaturaActualizada);
+
+            System.out.println("Asignatura actualizada correctamente.\n");
+            encontrada = true;
+            break;
+        }
+    }
+
+    if (!encontrada) {
+        System.out.println("Asignatura no encontrada.\n");
+    }
+}
 
     public static void main(String[] args) {
         registrarAsignatura();
@@ -76,5 +121,6 @@ public class Main {
 
         listarAsignaturas();
         buscarAsignatura();
+        actualizarAsignatura();
     }
 }
